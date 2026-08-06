@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WOW Packing — Smart Packaging Solutions</title>
+<style>
+  * { box-sizing: border-box; margin:0; padding:0; }
+  a{ text-decoration:none; color:inherit; }
+
+  :root{
+    --navy:#0B2545;
+    --blue:#1E56C4;
+    --blue-deep:#153E8F;
+    --sky:#4FA8E0;
+    --green:#178A4C;
+    --green-bg:#E7F6ED;
+    --bg:#F5F8FC;
+    --card:#FFFFFF;
+    --line:#D7E3F3;
+    --muted:#5B6B84;
+  }
+
+  html{ font-size:16px; }
+  body{
+    font-family:-apple-system,'Segoe UI',Roboto,'Liberation Sans','Noto Sans KR',sans-serif;
+    color:#1B2A41;
+    background:#fff;
+    line-height:1.5;
+  }
+  .kr{ font-family:'Noto Sans KR','Liberation Sans',sans-serif; }
+
+  .wrap{ max-width:42rem; margin:0 auto; padding:0 1.25rem; }
+
+  /* ---- Desktop: give it room to breathe instead of a skinny centered column ---- */
+  @media (min-width:900px){
+    html{ font-size:18px; }
+    body{ background:var(--bg); }
+    .wrap{
+      max-width:46rem;
+      margin:3rem auto;
+      background:#fff;
+      padding:3.5rem 4rem;
+      border-radius:1.25rem;
+      box-shadow:0 1.5rem 4rem rgba(11,37,69,.09);
+    }
+  }
+
+  section{ padding:2.75rem 0; border-bottom:1px solid var(--line); }
+  section:last-of-type{ border-bottom:none; }
+
+  .eyebrow{
+    font-weight:700; font-size:.7rem; letter-spacing:.09rem; text-transform:uppercase;
+    color:var(--blue); margin-bottom:.5rem;
+  }
+  h1{ font-weight:800; font-size:2rem; line-height:1.18; color:var(--navy); margin-bottom:.6rem; }
+  h2{ font-weight:800; font-size:1.5rem; line-height:1.22; color:var(--navy); margin-bottom:.75rem; }
+  h3{ font-weight:700; font-size:1.05rem; color:var(--navy); margin-bottom:.2rem; }
+  p{ color:var(--muted); font-size:.98rem; line-height:1.6; }
+
+  /* ---- Hero ---- */
+  .hero{ padding-top:2.5rem; }
+  .logo{ display:flex; align-items:center; gap:.6rem; margin-bottom:1.75rem; }
+  .logo svg{ width:2.2rem; height:2.2rem; }
+  .logo .word{ font-weight:800; font-size:1.15rem; color:var(--navy); }
+  .logo .word b{ color:var(--blue); }
+  .badge-pill{
+    display:inline-block; background:var(--green); color:#fff; font-weight:700; font-size:.7rem;
+    letter-spacing:.03rem; padding:.3rem .7rem; border-radius:1rem; margin-bottom:1rem;
+  }
+  .hero h1{ font-size:2.4rem; }
+  .hero h1 .accent{ color:var(--blue); }
+  .hero p.lead{ font-size:1.05rem; margin:1rem 0 1.75rem; max-width:34rem; }
+
+  .cta{
+    display:block; text-align:center; background:var(--blue); color:#fff;
+    font-weight:700; font-size:1.02rem; padding:.95rem 1rem; border-radius:.65rem;
+    box-shadow:0 .2rem 0 var(--blue-deep);
+  }
+  .cta.ghost{ background:#fff; color:var(--blue); border:1.5px solid var(--blue); box-shadow:none; margin-top:.6rem; }
+  .cta.small{ font-size:.92rem; padding:.75rem 1rem; }
+
+  .iconrow{ display:flex; flex-wrap:wrap; gap:.6rem; margin:1.5rem 0; }
+  .iconcell{
+    width:calc(33.333% - .42rem); background:var(--card); border:1px solid var(--line); border-radius:.7rem;
+    padding:.9rem .3rem .8rem; text-align:center;
+  }
+  .badge{
+    width:2rem; height:2rem; border-radius:.5rem; background:var(--blue);
+    display:flex; align-items:center; justify-content:center; margin:0 auto .45rem;
+  }
+  .badge svg{ width:1.1rem; height:1.1rem; stroke:#fff; fill:none; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+  .badge.soft{ background:var(--green-bg); }
+  .badge.soft svg{ stroke:var(--green); }
+  .iconcell span{ display:block; font-size:.72rem; font-weight:700; color:var(--navy); }
+
+  .trustrow{ display:flex; gap:.6rem; margin-top:1rem; }
+  .trust{ flex:1; text-align:center; background:var(--card); border:1px solid var(--line); border-radius:.7rem; padding:.8rem .3rem; }
+  .trust svg{ width:1.15rem; height:1.15rem; stroke:var(--blue); fill:none; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; margin-bottom:.35rem; }
+  .trust span{ display:block; font-size:.68rem; font-weight:700; color:var(--navy); }
+
+  /* ---- Lists ---- */
+  ul.list{ list-style:none; margin-top:1rem; }
+  ul.list li{ display:flex; gap:.75rem; align-items:flex-start; padding:.75rem 0; }
+  ul.list li + li{ border-top:1px solid var(--line); }
+  ul.list li .badge{ width:1.6rem; height:1.6rem; min-width:1.6rem; border-radius:.4rem; margin:.05rem 0 0; }
+  ul.list li .badge svg{ width:.9rem; height:.9rem; }
+  ul.list li .t{ font-size:.95rem; color:#26344B; }
+  ul.list li .t b{ color:var(--navy); }
+
+  .offer li .ttl{ font-weight:700; font-size:.98rem; color:var(--navy); margin-bottom:.1rem; }
+  .offer li .desc{ font-size:.85rem; color:var(--muted); }
+
+  /* ---- Pull quote ---- */
+  .pullquote{
+    margin-top:1.5rem; padding:1.25rem 1.4rem; border-radius:.8rem;
+    background:linear-gradient(135deg, var(--navy) 0%, var(--blue-deep) 100%);
+  }
+  .pullquote p{ color:#fff; font-weight:600; font-size:1.05rem; line-height:1.45; }
+
+  /* ---- Table ---- */
+  table.price{ width:100%; border-collapse:collapse; margin-top:1rem; font-size:.85rem; }
+  table.price th{
+    font-weight:700; font-size:.65rem; text-transform:uppercase; letter-spacing:.03rem;
+    background:var(--navy); color:#fff; padding:.55rem .5rem; text-align:left;
+  }
+  table.price th:nth-child(3),table.price th:nth-child(4),table.price th:nth-child(5){ text-align:right; }
+  table.price td{ padding:.6rem .5rem; border-bottom:1px solid var(--line); vertical-align:top; }
+  table.price td:nth-child(3),table.price td:nth-child(4),table.price td:nth-child(5){ text-align:right; font-family:'Courier New',monospace; }
+  table.price tr.best td{ background:var(--green-bg); }
+  table.price .cat{ font-weight:700; color:var(--navy); font-size:.88rem; }
+  table.price .spec{ color:var(--muted); font-size:.72rem; }
+  table.price .uline{ color:#8A94A6; text-decoration:line-through; }
+  table.price .wow{ color:var(--blue); font-weight:700; }
+  table.price .save{ display:inline-block; background:var(--green); color:#fff; font-weight:700; border-radius:.35rem; padding:.15rem .45rem; font-size:.72rem; }
+
+  .quotebox{ margin-top:1.25rem; background:var(--navy); color:#fff; border-radius:.8rem; padding:1.1rem 1.2rem; }
+  .quotebox .eyebrow{ color:#9FC2F2; }
+  .quotebox p{ color:#DCE7F7; font-size:.9rem; margin-top:.3rem; }
+  .quotebox .cta{ margin-top:.9rem; background:#fff; color:var(--navy); box-shadow:none; }
+
+  /* ---- Mission box ---- */
+  .missionbox{ background:var(--card); border:1px solid var(--line); border-radius:.8rem; padding:1.1rem 1.2rem; margin-top:1rem; }
+  .missionbox p{ color:#2A3A52; font-size:.95rem; }
+
+  .steps3{ display:flex; flex-direction:column; gap:.7rem; margin-top:1.1rem; }
+  @media(min-width:560px){ .steps3{ flex-direction:row; } }
+  .step{ flex:1; background:var(--card); border:1px solid var(--line); border-radius:.7rem; padding:.9rem 1rem; }
+  .step .badge{ width:1.7rem; height:1.7rem; border-radius:.45rem; margin-bottom:.5rem; }
+  .step .badge svg{ width:.95rem; height:.95rem; }
+  .step .ttl{ font-weight:700; font-size:.9rem; color:var(--navy); margin-bottom:.15rem; }
+  .step .desc{ font-size:.8rem; color:var(--muted); }
+
+  /* ---- Who grid ---- */
+  .who{ display:flex; flex-wrap:wrap; gap:.55rem; margin-top:1rem; }
+  .who .cell{ width:calc(33.333% - .37rem); text-align:center; padding:.75rem .25rem; background:var(--card); border:1px solid var(--line); border-radius:.65rem; }
+  .who .cell .badge{ width:1.7rem; height:1.7rem; border-radius:.45rem; margin:0 auto .35rem; }
+  .who .cell .badge svg{ width:.9rem; height:.9rem; }
+  .who .cell span{ font-size:.68rem; font-weight:700; color:var(--navy); }
+
+  .guarantee{ margin-top:1.25rem; display:flex; gap:.7rem; align-items:flex-start; background:var(--green-bg); border-radius:.7rem; padding:.9rem 1rem; }
+  .guarantee .gtitle{ font-weight:700; font-size:.92rem; color:#0F5C33; margin-bottom:.15rem; }
+  .guarantee .gdesc{ font-size:.82rem; color:#1E6B41; }
+
+  /* ---- Contact ---- */
+  .contact .row{ display:flex; align-items:center; gap:.7rem; padding:.4rem 0; font-size:.95rem; color:#28374E; }
+  .contact .row .badge{ width:1.5rem; height:1.5rem; min-width:1.5rem; border-radius:50%; }
+  .contact .row .badge svg{ width:.8rem; height:.8rem; }
+  .contact .name{ font-weight:700; color:var(--navy); }
+
+  footer{ padding:2rem 0 2.5rem; text-align:center; }
+  footer p{ font-size:.78rem; color:#8A94A6; }
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" xmlns:xlink="http://www.w3.org/1999/xlink">
+<defs>
+  <g id="i-shield"><path d="M12 3l7 3v5c0 5-3.5 8-7 9-3.5-1-7-4-7-9V6l7-3z"/><path d="M9 12l2 2 4-4"/></g>
+  <g id="i-truck"><rect x="2" y="7" width="12" height="9" rx="1"/><path d="M14 10h4l3 3v3h-7z"/><circle cx="6.5" cy="18.5" r="1.6"/><circle cx="17" cy="18.5" r="1.6"/></g>
+  <g id="i-tag"><path d="M3 12V4h8l10 10-8 8L3 12z"/><circle cx="7.5" cy="8.5" r="1.2" fill="#fff" stroke="none"/></g>
+  <g id="i-headset"><path d="M4 13v-1a8 8 0 0116 0v1"/><rect x="2.5" y="13" width="4" height="6" rx="1.5"/><rect x="17.5" y="13" width="4" height="6" rx="1.5"/><path d="M20 19v1a3 3 0 01-3 3h-3"/></g>
+  <g id="i-box"><path d="M3 7l9-4 9 4-9 4-9-4z"/><path d="M3 7v10l9 4 9-4V7"/><path d="M12 11v10"/></g>
+  <g id="i-tape"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3.4"/></g>
+  <g id="i-film"><ellipse cx="12" cy="5.5" rx="7" ry="2.5"/><path d="M5 5.5v11c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5v-11"/><ellipse cx="12" cy="5.5" rx="2.6" ry="1"/></g>
+  <g id="i-bubble"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8" cy="8" r="1.6"/><circle cx="14" cy="8" r="1.6"/><circle cx="8" cy="14" r="1.6"/><circle cx="14" cy="14" r="1.6"/><circle cx="8" cy="19.5" r="1.6"/><circle cx="14" cy="19.5" r="1.6"/></g>
+  <g id="i-mailer"><path d="M3 8l9-5 9 5v10a1 1 0 01-1 1H4a1 1 0 01-1-1V8z"/><path d="M3 8l9 6 9-6"/></g>
+  <g id="i-ladder"><path d="M6 2v20M18 2v20"/><path d="M6 6h12M6 11h12M6 16h12"/></g>
+  <g id="i-cart"><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/><path d="M2 3h3l2.6 12.4A2 2 0 009.5 17H18a2 2 0 002-1.6L21.5 7H6"/></g>
+  <g id="i-store"><path d="M3 9l1-5h16l1 5"/><path d="M4 9v10h16V9"/><path d="M9 19v-6h6v6"/><path d="M3 9a3 3 0 006 0 3 3 0 006 0 3 3 0 006 0"/></g>
+  <g id="i-warehouse"><path d="M3 21V10l9-6 9 6v11"/><path d="M3 21h18"/><path d="M9 21v-7h6v7"/></g>
+  <g id="i-logistics"><rect x="2" y="9" width="9" height="8"/><path d="M11 12h5l4 3v2h-9z"/><circle cx="7" cy="19" r="1.6"/><circle cx="17" cy="19" r="1.6"/></g>
+  <g id="i-check"><path d="M4 12l5 5L20 6"/></g>
+  <g id="i-phone"><path d="M5 4h3l2 5-2.2 1.5a12 12 0 006.7 6.7L16 15l5 2v3a2 2 0 01-2.2 2A17 17 0 013 6.2 2 2 0 015 4z"/></g>
+  <g id="i-mail"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 6l9 7 9-7"/></g>
+  <g id="i-user"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4.4 3.6-8 8-8s8 3.6 8 8"/></g>
+  <g id="i-chart"><path d="M4 20V10M11 20V4M18 20v-7"/><path d="M3 20h18"/></g>
+  <g id="i-route"><circle cx="5" cy="6" r="2.3"/><circle cx="19" cy="18" r="2.3"/><path d="M5 8.3V13a4 4 0 004 4h6"/></g>
+</defs>
+</svg>
+
+<div class="wrap">
+
+  <!-- HERO / COVER -->
+  <section class="hero">
+    <div class="logo">
+      <svg viewBox="0 0 40 40">
+        <polygon points="20,2 36,11 36,29 20,38 4,29 4,11" fill="#1E56C4"/>
+        <polygon points="20,8 30,13.5 30,26.5 20,32 10,26.5 10,13.5" fill="#4FA8E0"/>
+        <text x="20" y="24" font-family="Arial" font-weight="700" font-size="13" fill="#fff" text-anchor="middle">W</text>
+      </svg>
+      <div class="word">WOW <b>PACKING</b></div>
+    </div>
+
+    <span class="badge-pill">Pallet Pricing Available</span>
+    <h1>Pack Smarter.<br><span class="accent">Ship Cheaper.</span></h1>
+    <p class="lead">Wholesale pricing on boxes, tape, wrap &amp; shipping essentials — delivered with service you can count on.</p>
+
+    <div class="iconrow">
+      <div class="iconcell"><div class="badge"><svg viewBox="0 0 24 24"><use href="#i-box" xlink:href="#i-box"/></svg></div><span>Boxes &amp; Cartons</span></div>
+      <div class="iconcell"><div class="badge"><svg viewBox="0 0 24 24"><use href="#i-tape" xlink:href="#i-tape"/></svg></div><span>Packing Tape</span></div>
+      <div class="iconcell"><div class="badge"><svg viewBox="0 0 24 24"><use href="#i-film" xlink:href="#i-film"/></svg></div><span>Stretch Film</span></div>
+      <div class="iconcell"><div class="badge"><svg viewBox="0 0 24 24"><use href="#i-bubble" xlink:href="#i-bubble"/></svg></div><span>Bubble Wrap</span></div>
+      <div class="iconcell"><div class="badge"><svg viewBox="0 0 24 24"><use href="#i-mailer" xlink:href="#i-mailer"/></svg></div><span>Mailers &amp; Bags</span></div>
+      <div class="iconcell"><div class="badge"><svg viewBox="0 0 24 24"><use href="#i-ladder" xlink:href="#i-ladder"/></svg></div><span>Warehouse Ess.</span></div>
+    </div>
+
+    <a class="cta" href="mailto:eden@wowpacking.com?subject=Free%20Quote%20Request%20-%20WOW%20Packing&amp;body=Hi%20Eden%2C%0A%0AI%27d%20like%20to%20request%20a%20free%20quote%20for%20the%20items%20below.%0A%0AITEM%20LIST%20%2F%20VOLUME%20%2F%20TARGET%20PRICE%0A----------------------------------------------%0AItem%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20Qty%20%2F%20Volume%20%20%20%20%20%20%20%20Target%20Price%0A------------------%20%20------------------%20%20------------------%0A1.%0A2.%0A3.%0A4.%0A%0AMY%20INFORMATION%0A----------------------------------------------%0ACompany%20Name%3A%0AContact%20Name%3A%0APhone%3A%0AEmail%3A%0AShipping%20Address%3A%0A%0AAdditional%20Notes%3A%0A%0A%0AThanks%21">Get Your Free Quote Today</a>
+
+    <div class="trustrow">
+      <div class="trust"><svg viewBox="0 0 24 24"><use href="#i-tag" xlink:href="#i-tag"/></svg><span>Save up to 38%</span></div>
+      <div class="trust"><svg viewBox="0 0 24 24"><use href="#i-truck" xlink:href="#i-truck"/></svg><span>Reliable Stock</span></div>
+      <div class="trust"><svg viewBox="0 0 24 24"><use href="#i-headset" xlink:href="#i-headset"/></svg><span>Real Support</span></div>
+    </div>
+  </section>
+
+  <!-- WHY US -->
+  <section>
+    <div class="eyebrow">Trusted Packaging Partner</div>
+    <h2>Why Businesses Choose WOW Packing</h2>
+    <ul class="list">
+      <li><div class="badge"><svg viewBox="0 0 24 24"><use href="#i-tag" xlink:href="#i-tag"/></svg></div><span class="t"><b>Save up to 38%</b> versus national suppliers like Uline</span></li>
+      <li><div class="badge"><svg viewBox="0 0 24 24"><use href="#i-box" xlink:href="#i-box"/></svg></div><span class="t">Reliable stock for daily operations — <b>no back-orders</b></span></li>
+      <li><div class="badge"><svg viewBox="0 0 24 24"><use href="#i-truck" xlink:href="#i-truck"/></svg></div><span class="t"><b>Bulk &amp; pallet pricing</b> built for wholesale volume</span></li>
+      <li><div class="badge"><svg viewBox="0 0 24 24"><use href="#i-headset" xlink:href="#i-headset"/></svg></div><span class="t">A real account rep who <b>picks up the phone</b></span></li>
+    </ul>
+    <div class="pullquote">
+      <p>One supplier for every packaging category — so you order less often and save more each time.</p>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section>
+    <div class="eyebrow">See The Savings</div>
+    <h2>Quick Price Comparison</h2>
+    <p>Real prices, real savings — see how WOW Packing lowers your everyday packaging costs.</p>
+    <table class="price">
+      <thead><tr><th>Product</th><th>Spec</th><th>Uline</th><th>WOW</th><th>Save</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><div class="cat">Corrugated Boxes</div><div class="spec">Cartons &amp; shipping</div></td>
+          <td class="spec">15×12×6</td><td class="uline">$1.92</td><td class="wow">$1.66</td><td><span class="save">14%</span></td>
+        </tr>
+        <tr class="best">
+          <td><div class="cat">Packing Tape</div><div class="spec">Tape &amp; dispensers</div></td>
+          <td class="spec">2mil, 2"×110yd</td><td class="uline">$72</td><td class="wow">$45</td><td><span class="save">38%</span></td>
+        </tr>
+        <tr>
+          <td><div class="cat">Stretch Film</div><div class="spec">Pallet wrap</div></td>
+          <td class="spec">18", 80ga×1500</td><td class="uline">$84</td><td class="wow">$72</td><td><span class="save">14%</span></td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="quotebox">
+      <div class="eyebrow">Ready To Save?</div>
+      <p>Prices may vary with market conditions. Lock in today's rate with a free, no-obligation quotation.</p>
+      <a class="cta" href="mailto:eden@wowpacking.com?subject=Free%20Quote%20Request%20-%20WOW%20Packing&amp;body=Hi%20Eden%2C%0A%0AI%27d%20like%20to%20request%20a%20free%20quote%20for%20the%20items%20below.%0A%0AITEM%20LIST%20%2F%20VOLUME%20%2F%20TARGET%20PRICE%0A----------------------------------------------%0AItem%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20Qty%20%2F%20Volume%20%20%20%20%20%20%20%20Target%20Price%0A------------------%20%20------------------%20%20------------------%0A1.%0A2.%0A3.%0A4.%0A%0AMY%20INFORMATION%0A----------------------------------------------%0ACompany%20Name%3A%0AContact%20Name%3A%0APhone%3A%0AEmail%3A%0AShipping%20Address%3A%0A%0AAdditional%20Notes%3A%0A%0A%0AThanks%21">Request Free Quote →</a>
+    </div>
+  </section>
+
+  <!-- WHAT WE OFFER -->
+  <section>
+    <div class="eyebrow">Full Catalog</div>
+    <h2>What We Offer</h2>
+    <ul class="list offer">
+      <li><div class="badge"><svg viewBox="0 0 24 24"><use href="#i-box" xlink:href="#i-box"/></svg></div><div><div class="ttl">Boxes &amp; Cartons</div><div class="desc">Multiple sizes for shipping &amp; storage.</div></div></li>
+      <li><div class="badge"><svg viewBox="0 0 24 24"><use href="#i-tape" xlink:href="#i-tape"/></svg></div><div><div class="ttl">Tape &amp; Dispensers</div><div class="desc">Dependable seals that hold in transit.</div></div></li>
+      <li><div class="badge"><svg viewBox="0 0 24 24"><use href="#i-film" xlink:href="#i-film"/></svg></div><div><div class="ttl">Stretch Film &amp; Wrap</div><div class="desc">Clear &amp; black film for stable loads.</div></div></li>
+      <li><div class="badge"><svg viewBox="0 0 24 24"><use href="#i-bubble" xlink:href="#i-bubble"/></svg></div><div><div class="ttl">Bubble &amp; Cushioning</div><div class="desc">Protection for fragile, high-value items.</div></div></li>
+      <li><div class="badge"><svg viewBox="0 0 24 24"><use href="#i-mailer" xlink:href="#i-mailer"/></svg></div><div><div class="ttl">Mailers &amp; Bags</div><div class="desc">Poly &amp; padded mailers ready to ship.</div></div></li>
+      <li><div class="badge"><svg viewBox="0 0 24 24"><use href="#i-ladder" xlink:href="#i-ladder"/></svg></div><div><div class="ttl">Warehouse Essentials</div><div class="desc">Everyday supplies for daily operations.</div></div></li>
+    </ul>
+    <p style="margin-top:1rem;">Don't see what you need? Ask about custom packaging solutions.</p>
+  </section>
+
+  <!-- MISSION -->
+  <section>
+    <div class="eyebrow">Our Mission</div>
+    <h2>Pack Smarter. Save More. Ship With Confidence.</h2>
+    <div class="missionbox">
+      <p>WOW Packing provides dependable packaging products at competitive prices, so businesses can reduce costs without sacrificing quality or service.</p>
+    </div>
+    <div class="steps3">
+      <div class="step"><div class="badge"><svg viewBox="0 0 24 24"><use href="#i-mail" xlink:href="#i-mail"/></svg></div><div class="ttl">Request a Quote</div><div class="desc">Tell us what you need and how much.</div></div>
+      <div class="step"><div class="badge"><svg viewBox="0 0 24 24"><use href="#i-route" xlink:href="#i-route"/></svg></div><div class="ttl">We Confirm</div><div class="desc">Fast, straight answers on price &amp; stock.</div></div>
+      <div class="step"><div class="badge"><svg viewBox="0 0 24 24"><use href="#i-truck" xlink:href="#i-truck"/></svg></div><div class="ttl">We Deliver</div><div class="desc">Reliable delivery to your dock, on time.</div></div>
+    </div>
+  </section>
+
+  <!-- IDEAL FOR -->
+  <section>
+    <div class="eyebrow">Built For</div>
+    <h2>Ideal For</h2>
+    <div class="who">
+      <div class="cell"><div class="badge"><svg viewBox="0 0 24 24"><use href="#i-cart" xlink:href="#i-cart"/></svg></div><span>E-commerce</span></div>
+      <div class="cell"><div class="badge"><svg viewBox="0 0 24 24"><use href="#i-box" xlink:href="#i-box"/></svg></div><span>Wholesale</span></div>
+      <div class="cell"><div class="badge"><svg viewBox="0 0 24 24"><use href="#i-store" xlink:href="#i-store"/></svg></div><span>Retail Stores</span></div>
+      <div class="cell"><div class="badge"><svg viewBox="0 0 24 24"><use href="#i-warehouse" xlink:href="#i-warehouse"/></svg></div><span>Warehouses</span></div>
+      <div class="cell"><div class="badge"><svg viewBox="0 0 24 24"><use href="#i-logistics" xlink:href="#i-logistics"/></svg></div><span>Logistics</span></div>
+      <div class="cell"><div class="badge"><svg viewBox="0 0 24 24"><use href="#i-chart" xlink:href="#i-chart"/></svg></div><span>Growing Biz</span></div>
+    </div>
+    <div class="guarantee">
+      <div class="badge soft"><svg viewBox="0 0 24 24"><use href="#i-shield" xlink:href="#i-shield"/></svg></div>
+      <div>
+        <div class="gtitle">Straightforward, No-Pressure Pricing</div>
+        <div class="gdesc">Transparent quotes, dependable stock, and no long-term contracts required.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA + CONTACT -->
+  <section>
+    <div class="eyebrow">Let's Grow Together</div>
+    <h2>Reliable products. Better value. Business-friendly service.</h2>
+    <a class="cta" href="mailto:eden@wowpacking.com?subject=Free%20Quote%20Request%20-%20WOW%20Packing&amp;body=Hi%20Eden%2C%0A%0AI%27d%20like%20to%20request%20a%20free%20quote%20for%20the%20items%20below.%0A%0AITEM%20LIST%20%2F%20VOLUME%20%2F%20TARGET%20PRICE%0A----------------------------------------------%0AItem%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20Qty%20%2F%20Volume%20%20%20%20%20%20%20%20Target%20Price%0A------------------%20%20------------------%20%20------------------%0A1.%0A2.%0A3.%0A4.%0A%0AMY%20INFORMATION%0A----------------------------------------------%0ACompany%20Name%3A%0AContact%20Name%3A%0APhone%3A%0AEmail%3A%0AShipping%20Address%3A%0A%0AAdditional%20Notes%3A%0A%0A%0AThanks%21">Request Your Free Quote</a>
+    <a class="cta ghost" href="tel:+17473336566">Call 747 333 6566</a>
+
+    <div class="contact" style="margin-top:1.5rem;">
+      <div class="row"><div class="badge"><svg viewBox="0 0 24 24"><use href="#i-user" xlink:href="#i-user"/></svg></div><span class="name kr">Eden Joo (주낙원)</span></div>
+      <a class="row" href="tel:+17473336566"><div class="badge"><svg viewBox="0 0 24 24"><use href="#i-phone" xlink:href="#i-phone"/></svg></div><span>747 333 6566</span></a>
+      <a class="row" href="mailto:eden@wowpacking.com"><div class="badge"><svg viewBox="0 0 24 24"><use href="#i-mail" xlink:href="#i-mail"/></svg></div><span>eden@wowpacking.com</span></a>
+    </div>
+  </section>
+
+  <footer>
+    <p>WOW Packing — Your cost-saving packaging partner for shipping, warehousing &amp; fulfillment.</p>
+  </footer>
+
+</div>
+</body>
+</html>
